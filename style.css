@@ -14,3 +14,16 @@
     align-items: center;
     font-size: 100px;
 }
+
+.modal {
+    display: none;
+    position: absolute;
+    top: 200px;
+    left: 300px;
+    background: blueviolet;
+    opacity: .9;
+}
+
+.show-modal {
+    display: flex;
+}

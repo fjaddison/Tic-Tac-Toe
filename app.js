@@ -1,9 +1,7 @@
 console.log("testing...");
 
-/* 
-values for HTML elements related to the player turn, all 
-of the game squares with same class, and the grid as a whole
-*/
+/* values for HTML elements related to the player turn, all 
+of the game squares with same class, and the grid as a whole */
 const gameSquares = document.querySelectorAll('.game-square');
 const playerTurn = document.querySelector('.player-turn');
 const gameGrid = document.querySelector('.game-grid');
@@ -45,10 +43,8 @@ gameSquares.forEach(function(x) {
     });
 });
 
-/* 
-functions to check if rows, columns, or 
-diagonal arrays are all X or O
-*/
+/* functions to check if rows, columns, or 
+diagonal arrays are all X or O */
 function isRed(x) {
     return x.style.backgroundColor == 'red';
 }
@@ -57,9 +53,43 @@ function isPink(x) {
     return x.style.backgroundColor == 'pink';
 }
 
+/* could use a function to call if game is over
+so the game can alert the user of a win or draw */
+const modal = document.querySelector('.modal');
+const message = document.querySelector('.game-message');
+
+function gameOver() {
+    modal.classList.toggle('show-modal');
+}
+
+function xWins() {
+    message.innerHTML = 'Player X is the Winner!';
+}
+
+function oWins() {
+    message.innerHTML = 'Player O is the Winner!';
+}
+
 // event listener to check if game is over after each turn
 gameGrid.addEventListener('click', function() {
     if (rowOneArray.every(isRed)) {
-        console.log('they be red')
+        console.log('row one is red');
+        oWins();
+        gameOver();
+    } if (rowTwoArray.every(isRed)) {
+        console.log('row two is red');
+    } if (rowThreeArray.every(isRed)) {
+        console.log('row three is red');
+    } if (colOneArray.every(isRed)) {
+        console.log('column one is red');
+    } if (colTwoArray.every(isRed)) {
+        console.log('column two is red');
     }
-})
+});
+
+// constant for button to restart game with event listener
+const restartButton = document.querySelector('.reset-button');
+
+restartButton.addEventListener('click', function() {
+    location.reload();
+});
