@@ -41,6 +41,7 @@ gameSquares.forEach(function(x) {
             playerTurn.innerHTML = 'X';
         }
     });
+ 
 });
 
 /* functions to check if rows, columns, or 
@@ -87,7 +88,7 @@ gameGrid.addEventListener('click', function() {
     }
 });
 
-// constant for button to restart game with event listener
+// constant for button to restart game with event listener to trigger it
 const restartButton = document.querySelector('.reset-button');
 
 restartButton.addEventListener('click', function() {

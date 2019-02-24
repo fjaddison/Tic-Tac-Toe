@@ -1,6 +1,16 @@
+/* 
+font-family: 'Prata', serif;
+font-family: 'Abril Fatface', cursive; 
+*/
+
 .game-grid {
     height: 450px;
     width: 460px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
     display: flex;
     flex-wrap: wrap;
 }
@@ -8,22 +18,85 @@
 .game-square {
     height: 150px;
     width: 150px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 100px;
 }
 
+#s1 {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#s2 {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+#s3 {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+#s4 {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+#s5 {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+#s6 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+#s7 {
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+
+#s8 {
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+
+#s9 {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+}
+
 .modal {
+    /* font-family: 'Prata', serif; */
+    margin-top: 90px;
     display: none;
     position: absolute;
-    top: 200px;
-    left: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
     background: blueviolet;
     opacity: .9;
+    height: 500px;
+    width: 500px;
+    z-index: 1;
 }
 
 .show-modal {
     display: flex;
+}
+
+.game-message {
+    font-family: 'Abril Fatface', cursive;
+    text-transform: uppercase;
 }
