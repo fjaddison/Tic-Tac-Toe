@@ -46,7 +46,6 @@ gameSquares.forEach(function(x) {
             playerTurn.innerHTML = 'X';
         }
     });
- 
 });
 
 /* functions to check if rows, columns, or 
@@ -73,18 +72,6 @@ function gameOver() {
     modal.classList.toggle('show-modal');
 }
 
-function xWins() {
-    message.innerHTML = 'Player X is the Winner!';
-}
-
-function oWins() {
-    message.innerHTML = 'Player O is the Winner!';
-}
-
-function outOfMoves() {
-    message.innerHTML = "it's a draw!"
-}
-
 // event listener to check if game is over after each turn
 gameGrid.addEventListener('click', function() {
     if (rowOneArray.every(isRed) ||
@@ -97,7 +84,7 @@ gameGrid.addEventListener('click', function() {
         diagTwo.every(isRed)
     ) {
         console.log('red wins');
-        oWins();
+        message.innerHTML = 'Player O is the Winner!';
         gameOver();
     } if (
         rowOneArray.every(isPink) ||
@@ -110,11 +97,11 @@ gameGrid.addEventListener('click', function() {
         diagTwo.every(isPink)
     ) {
         console.log('pink wins');
-        xWins();
+        message.innerHTML = 'Player X is the Winner!';
         gameOver();
     } if (allSquaresArray.every(isFull)) {
         gameOver();
-        outOfMoves();
+        message.innerHTML = "it's a draw!";
     }
 });
 
