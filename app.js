@@ -28,6 +28,11 @@ const colThreeArray = [sqThree, sqSix, sqNine];
 const diagOne = [sqOne, sqFive, sqNine];
 const diagTwo = [sqThree, sqFive, sqSeven];
 
+// turning NodeList into array to make use of the 'every' method
+var allSquaresArray = []
+gameSquares.forEach(x => allSquaresArray.push(x));
+console.log(allSquaresArray);
+
 // event listener for each square to deal with click event
 gameSquares.forEach(function(x) {
     x.addEventListener('click', function() {
@@ -47,11 +52,16 @@ gameSquares.forEach(function(x) {
 /* functions to check if rows, columns, or 
 diagonal arrays are all X or O */
 function isRed(x) {
-    return x.style.backgroundColor == 'red';
+    return x.style.backgroundColor === 'red';
 }
 
 function isPink(x) {
-    return x.style.backgroundColor == 'pink';
+    return x.style.backgroundColor === 'pink';
+}
+
+
+function isFull(x) {
+    return x.style.backgroundColor !== '';
 }
 
 /* could use a function to call if game is over
@@ -71,20 +81,40 @@ function oWins() {
     message.innerHTML = 'Player O is the Winner!';
 }
 
+function outOfMoves() {
+    message.innerHTML = "it's a draw!"
+}
+
 // event listener to check if game is over after each turn
 gameGrid.addEventListener('click', function() {
-    if (rowOneArray.every(isRed)) {
-        console.log('row one is red');
+    if (rowOneArray.every(isRed) ||
+        rowTwoArray.every(isRed) ||
+        rowThreeArray.every(isRed) ||
+        colOneArray.every(isRed) ||
+        colTwoArray.every(isRed) ||
+        colThreeArray.every(isRed) ||
+        diagOne.every(isRed) ||
+        diagTwo.every(isRed)
+    ) {
+        console.log('red wins');
         oWins();
         gameOver();
-    } if (rowTwoArray.every(isRed)) {
-        console.log('row two is red');
-    } if (rowThreeArray.every(isRed)) {
-        console.log('row three is red');
-    } if (colOneArray.every(isRed)) {
-        console.log('column one is red');
-    } if (colTwoArray.every(isRed)) {
-        console.log('column two is red');
+    } if (
+        rowOneArray.every(isPink) ||
+        rowTwoArray.every(isPink) ||
+        rowThreeArray.every(isPink) ||
+        colOneArray.every(isPink) ||
+        colTwoArray.every(isPink) ||
+        colThreeArray.every(isPink) ||
+        diagOne.every(isPink) ||
+        diagTwo.every(isPink)
+    ) {
+        console.log('pink wins');
+        xWins();
+        gameOver();
+    } if (allSquaresArray.every(isFull)) {
+        gameOver();
+        outOfMoves();
     }
 });
 

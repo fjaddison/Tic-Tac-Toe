@@ -86,7 +86,7 @@ font-family: 'Abril Fatface', cursive;
     left: 0;
     right: 0;
     background: blueviolet;
-    opacity: .9;
+    /* opacity: .9; */
     height: 500px;
     width: 500px;
     z-index: 1;
