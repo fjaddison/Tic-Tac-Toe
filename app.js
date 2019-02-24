@@ -58,7 +58,6 @@ function isPink(x) {
     return x.style.backgroundColor === 'pink';
 }
 
-
 function isFull(x) {
     return x.style.backgroundColor !== '';
 }
