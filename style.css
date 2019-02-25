@@ -116,7 +116,8 @@ font-family: 'Abril Fatface', cursive;
     margin-right: auto;
     left: 0;
     right: 0;
-    background: blueviolet;
+    background: white;
+    border: 3px solid black;
     /* opacity: .9; */
     height: 500px;
     width: 500px;
@@ -130,6 +131,12 @@ font-family: 'Abril Fatface', cursive;
 .game-message {
     font-family: 'Abril Fatface', cursive;
     text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 50px;
 }
 
 .reset-button {
