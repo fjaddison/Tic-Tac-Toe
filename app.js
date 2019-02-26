@@ -36,12 +36,12 @@ console.log(allSquaresArray);
 // event listener for each square to deal with click event
 gameSquares.forEach(function(x) {
     x.addEventListener('click', function() {
-        if (playerTurn.innerHTML === 'X' && x.style.backgroundColor == '') {
-            x.style.backgroundColor = 'pink';
+        if (playerTurn.innerHTML === 'X' && x.innerHTML === '') {
+            // x.style.backgroundColor = 'pink';
             x.innerHTML = 'X';
             playerTurn.innerHTML = 'O';
-        } if (playerTurn.innerHTML === 'O' && x.style.backgroundColor == '') {
-            x.style.backgroundColor = 'red';
+        } if (playerTurn.innerHTML === 'O' && x.innerHTML === '') {
+            // x.style.backgroundColor = 'red';
             x.innerHTML = 'O';
             playerTurn.innerHTML = 'X';
         }
@@ -50,16 +50,16 @@ gameSquares.forEach(function(x) {
 
 /* functions to check if rows, columns, or 
 diagonal arrays are all X or O */
-function isRed(x) {
-    return x.style.backgroundColor === 'red';
+function isO(x) {
+    return x.innerHTML === 'O';
 }
 
-function isPink(x) {
-    return x.style.backgroundColor === 'pink';
+function isX(x) {
+    return x.innerHTML === 'X';
 }
 
 function isFull(x) {
-    return x.style.backgroundColor !== '';
+    return x.innerHTML !== '';
 }
 
 /* could use a function to call if game is over
@@ -73,27 +73,27 @@ function gameOver() {
 
 // event listener to check if game is over after each turn
 gameGrid.addEventListener('click', function() {
-    if (rowOneArray.every(isRed) ||
-        rowTwoArray.every(isRed) ||
-        rowThreeArray.every(isRed) ||
-        colOneArray.every(isRed) ||
-        colTwoArray.every(isRed) ||
-        colThreeArray.every(isRed) ||
-        diagOne.every(isRed) ||
-        diagTwo.every(isRed)
+    if (rowOneArray.every(isO) ||
+        rowTwoArray.every(isO) ||
+        rowThreeArray.every(isO) ||
+        colOneArray.every(isO) ||
+        colTwoArray.every(isO) ||
+        colThreeArray.every(isO) ||
+        diagOne.every(isO) ||
+        diagTwo.every(isO)
     ) {
         console.log('red wins');
         message.innerHTML = 'Player O is the Winner!';
         gameOver();
     } if (
-        rowOneArray.every(isPink) ||
-        rowTwoArray.every(isPink) ||
-        rowThreeArray.every(isPink) ||
-        colOneArray.every(isPink) ||
-        colTwoArray.every(isPink) ||
-        colThreeArray.every(isPink) ||
-        diagOne.every(isPink) ||
-        diagTwo.every(isPink)
+        rowOneArray.every(isX) ||
+        rowTwoArray.every(isX) ||
+        rowThreeArray.every(isX) ||
+        colOneArray.every(isX) ||
+        colTwoArray.every(isX) ||
+        colThreeArray.every(isX) ||
+        diagOne.every(isX) ||
+        diagTwo.every(isX)
     ) {
         console.log('pink wins');
         message.innerHTML = 'Player X is the Winner!';
