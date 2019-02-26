@@ -143,3 +143,7 @@ font-family: 'Abril Fatface', cursive;
     text-transform: uppercase;
     font-size: 15px;
 }
+
+.player-turn-box {
+    font-size: 20px;
+}
