@@ -82,7 +82,7 @@ gameGrid.addEventListener('click', function() {
         diagOne.every(isO) ||
         diagTwo.every(isO)
     ) {
-        console.log('red wins');
+        console.log('O Wins');
         message.innerHTML = 'Player O is the Winner!';
         gameOver();
     } if (
@@ -95,7 +95,7 @@ gameGrid.addEventListener('click', function() {
         diagOne.every(isX) ||
         diagTwo.every(isX)
     ) {
-        console.log('pink wins');
+        console.log('X Wins');
         message.innerHTML = 'Player X is the Winner!';
         gameOver();
     } if (allSquaresArray.every(isFull)) {
